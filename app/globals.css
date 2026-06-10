@@ -175,13 +175,17 @@ h3 {
   transform: translateY(-2px);
 }
 
-/* ---------- reveal on-scroll ---------- */
-.reveal {
+/* ---------- reveal on-scroll ----------
+   Base SSR / sin-JS: VISIBLE — la página se ve completa y ordenada al entrar.
+   El hook agrega `reveal-on` al <html> recién cuando hay JS; ahí los elementos
+   fuera del viewport se ocultan para animarse al scrollear (los que ya están en
+   pantalla se marcan visibles en el mismo frame, sin parpadeo). */
+.reveal-on .reveal {
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
 }
-.reveal.is-visible {
+.reveal-on .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
@@ -198,9 +202,13 @@ h3 {
   transition-delay: 0.32s;
 }
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .reveal-on .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+  .card-collapse,
+  .card-toggle svg {
     transition: none;
   }
   * {
@@ -917,6 +925,64 @@ h3 {
   color: var(--linea);
 }
 
+/* --- acordeón de tarjetas --- */
+.card {
+  cursor: pointer;
+}
+/* Estado seleccionado (abierta): línea roja superior + sombra, como "marcada". */
+.card[data-open='true'] {
+  border-color: transparent;
+  box-shadow: 0 30px 50px -30px rgba(22, 24, 29, 0.28);
+}
+.card[data-open='true']::before {
+  transform: scaleX(1);
+}
+.card[data-open='true'] .card-toggle {
+  border-color: var(--borgona);
+  background: var(--tinte);
+}
+.card-toggle {
+  margin-top: 16px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--linea);
+  background: #fff;
+  color: var(--borgona);
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.card:hover .card-toggle {
+  border-color: var(--borgona);
+  background: var(--tinte);
+}
+.card-toggle svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+  transition: transform 0.35s var(--ease);
+}
+.card[data-open='true'] .card-toggle svg {
+  transform: rotate(180deg);
+}
+
+/* Despliegue suave con grid-template-rows 0fr → 1fr (anima altura auto). */
+.card-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease);
+}
+.card[data-open='true'] .card-collapse {
+  grid-template-rows: 1fr;
+}
+.card-collapse-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
 /* =========================================================
    METODOLOGÍA
    ========================================================= */
@@ -1474,7 +1540,7 @@ h3 {
     gap: 36px;
   }
   /* Banda de sectores en móvil: texto centrado + chico, e ítems
-     (Minería · Petróleo · Gas) en una fila compacta debajo. */
+     (Minería · Oil · Gas) en una fila compacta debajo. */
   .sectors {
     padding-block: 26px;
   }

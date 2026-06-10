@@ -31,7 +31,7 @@ export type HeroAction = {
 };
 
 export const hero = {
-  eyebrow: 'Control de contratistas · Minería, petróleo & gas',
+  eyebrow: 'Control de contratistas · Minería, oil & gas',
   // El titular se compone con un fragmento acentuado en bordó.
   titleBefore: 'Blindaje ',
   titleAccent: 'legal y operativo',
@@ -58,7 +58,7 @@ export const sectors = {
   leadAfter: ' de las industrias más exigentes de Argentina.',
   list: [
     { icon: 'mineria', label: 'Minería' },
-    { icon: 'petroleo', label: 'Petróleo' },
+    { icon: 'petroleo', label: 'Oil' },
     { icon: 'gas', label: 'Gas' },
   ] as Sector[],
 };
@@ -181,7 +181,7 @@ export const services = {
     {
       num: '06',
       icon: 'scale',
-      title: 'Marco Legal en Minería, Petróleo & Gas',
+      title: 'Marco Legal en Minería, Oil & Gas',
       baja: 'Cumplimiento adaptado al régimen vigente, nacional y provincial.',
       points: [
         'Gestión de permisos y concesiones (derecho administrativo minero)',
@@ -280,11 +280,11 @@ export const contact = {
 
 /* ---------- Footer ---------- */
 export const footer = {
-  desc: 'Auditoría y control de contratistas, gestión documental y asesoría legal-estratégica para minería, petróleo y gas.',
+  desc: 'Auditoría y control de contratistas, gestión documental y asesoría legal-estratégica para minería, oil y gas.',
   navTitle: 'Navegación',
   contactTitle: 'Contacto',
   contactLines: [site.phone, site.email, 'San Juan · Mendoza'],
   copyright:
-    '© 2026 Pragma Controllers — Consultoría para minería, petróleo y gas · San Juan — Mendoza',
+    '© 2026 Pragma Controllers — Consultoría para minería, oil y gas · San Juan — Mendoza',
   tagline: 'Diseñado con criterio. Construido con tecnología.',
 };

@@ -21,7 +21,8 @@ export type IconName =
   | 'eye'
   | 'map-pin'
   | 'phone'
-  | 'mail';
+  | 'mail'
+  | 'chevron-down';
 
 const PATHS: Record<IconName, ReactNode> = {
   menu: (
@@ -118,6 +119,7 @@ const PATHS: Record<IconName, ReactNode> = {
       <path d="m2 7 10 6 10-6" />
     </>
   ),
+  'chevron-down': <path d="m6 9 6 6 6-6" />,
 };
 
 export function Icon({ name }: { name: IconName }) {
