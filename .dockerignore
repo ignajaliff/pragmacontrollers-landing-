@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+.git
+_design
+*.zip
+npm-debug.log*
+.DS_Store
+.env*
