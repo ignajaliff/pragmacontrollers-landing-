@@ -228,11 +228,14 @@ h3 {
   height: 76px;
   display: flex;
   align-items: center;
-  transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease),
-    border-color 0.3s var(--ease);
+  transition: transform 0.35s var(--ease), background 0.3s var(--ease),
+    box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
   border-bottom: 1px solid transparent;
+  /* Oculto arriba de todo: en el hero la marca es el logo. */
+  transform: translateY(-100%);
 }
 .header.scrolled {
+  transform: translateY(0);
   background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
@@ -277,6 +280,12 @@ h3 {
   color: var(--gris-medio);
   text-transform: uppercase;
   margin-top: 1px;
+}
+
+.nav-logo {
+  /* Ícono (sin texto): entra cómodo en la barra de 76px con buen tamaño. */
+  height: 56px;
+  width: auto;
 }
 
 .nav {
@@ -375,7 +384,7 @@ h3 {
    ========================================================= */
 .hero {
   position: relative;
-  padding-top: 150px;
+  padding-top: clamp(16px, 2.4vw, 36px);
   padding-bottom: clamp(70px, 9vw, 120px);
   overflow: hidden;
 }
@@ -415,34 +424,54 @@ h3 {
   position: relative;
   z-index: 1;
 }
+/* Logo arriba, centrado — más grande y cerca del texto. */
+.hero-logo {
+  display: flex;
+  justify-content: center;
+  /* Negativo para compensar el espacio en blanco interno del PNG y pegar
+     el título a la imagen. */
+  margin-bottom: clamp(-56px, -3.4vw, -30px);
+}
+.hero-logo img {
+  width: 100%;
+  height: auto;
+  max-width: 560px;
+}
+/* Bloque de texto centrado y más ancho. */
 .hero-inner {
-  max-width: 920px;
+  max-width: 1040px;
+  margin-inline: auto;
+  text-align: center;
 }
 .hero h1 {
-  font-size: clamp(40px, 6.6vw, 82px);
+  font-size: clamp(36px, 5.2vw, 66px);
   letter-spacing: -0.035em;
-  line-height: 1.02;
-  max-width: 16ch;
-  margin-top: 28px;
+  line-height: 1.04;
+  max-width: 30ch;
+  margin-top: 10px;
+  margin-inline: auto;
 }
 .hero .lead {
-  margin-top: 26px;
+  margin-top: 18px;
+  margin-inline: auto;
   font-size: clamp(17px, 1.7vw, 21px);
-  max-width: 54ch;
+  max-width: 64ch;
 }
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 14px;
-  margin-top: 36px;
+  margin-top: 24px;
 }
 .hero-stats {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 14px;
-  margin-top: 56px;
+  margin-top: 34px;
   border-top: 1px solid var(--linea);
-  padding-top: 30px;
+  padding-top: 24px;
 }
 .stat {
   flex: 1 1 200px;
@@ -484,6 +513,9 @@ h3 {
 }
 .hero .a5 {
   transition-delay: 0.54s;
+}
+.hero .a6 {
+  transition-delay: 0.66s;
 }
 @media (prefers-reduced-motion: reduce) {
   .preload .hero .anim {
@@ -1258,6 +1290,9 @@ h3 {
 .why .head h2 {
   margin-top: 18px;
 }
+.why .head .lead {
+  margin-top: 18px;
+}
 .pillars {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1451,7 +1486,7 @@ h3 {
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
   gap: 40px;
   padding-bottom: 40px;
   border-bottom: 1px solid #2a2e37;
@@ -1530,6 +1565,10 @@ h3 {
   }
   .menu-toggle {
     display: flex;
+  }
+  /* Hero en móvil: logo arriba (un poco más chico que en desktop). */
+  .hero-logo img {
+    max-width: 360px;
   }
   .problem .grid {
     grid-template-columns: 1fr;

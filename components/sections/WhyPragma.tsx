@@ -10,6 +10,7 @@ export function WhyPragma() {
         <div className="head reveal">
           <span className="eyebrow">{why.eyebrow}</span>
           <h2 className="h2">{why.title}</h2>
+          <p className="lead">{why.lead}</p>
         </div>
         <div className="pillars">
           {why.pillars.map((pillar, i) => (

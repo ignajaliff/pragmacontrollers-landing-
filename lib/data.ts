@@ -9,7 +9,7 @@ export const site = {
   tagline: 'Control de contratistas',
   phone: '+54 9 261 422 4820',
   email: 'contacto@pragmacontrollers.com', // placeholder — confirmar real
-  offices: 'San Juan · Mendoza, Argentina',
+  offices: 'Mendoza, Argentina · Santiago de Chile, Chile',
 } as const;
 
 /* ---------- Navegación ---------- */
@@ -31,12 +31,13 @@ export type HeroAction = {
 };
 
 export const hero = {
-  eyebrow: 'Control de contratistas · Minería, oil & gas',
+  eyebrow:
+    'Control de contratistas y nacionalización de empresas · Minería, Oil & Gas',
   // El titular se compone con un fragmento acentuado en bordó.
-  titleBefore: 'Blindaje ',
-  titleAccent: 'legal y operativo',
-  titleAfter: ' para tu cadena de contratistas.',
-  lead: 'Minimizamos el riesgo de solidaridad laboral controlando de forma inteligente el cumplimiento normativo, previsional y de seguros de toda tu nómina de contratistas y subcontratistas.',
+  titleBefore: 'Auditoría de proveedores y ',
+  titleAccent: 'nacionalización de empresas',
+  titleAfter: '.',
+  lead: 'A través de nuestros servicios acompañamos a las empresas en la gestión de contratistas, nacionalización y desembarco dentro de los marcos que la legislación nacional exige.',
   actions: [
     { label: 'Solicitar diagnóstico', href: '#contacto', variant: 'primary', arrow: true },
     { label: 'Ver servicios', href: '#servicios', variant: 'ghost' },
@@ -44,7 +45,7 @@ export const hero = {
   stats: [
     { k: '360°', v: 'Acompañamiento integral' },
     { k: 'Tiempo real', v: 'Reportes y alertas' },
-    { k: 'Cuyo', v: 'San Juan · Mendoza' },
+    { k: 'Cuyo y Patagonia', v: 'Zona de operación' },
   ],
 } as const;
 
@@ -249,12 +250,13 @@ export type Pillar = { icon: IconName; title: string; body: string };
 
 export const why = {
   eyebrow: 'Por qué Pragma',
-  title: 'No somos un software. Somos criterio jurídico con tecnología.',
+  title: 'Criterio jurídico-económico real.',
+  lead: 'Dirigidos por profesionales del derecho y economistas, no solo un software.',
   pillars: [
     { icon: 'scale', title: 'Criterio jurídico real', body: 'Dirigidos por profesionales del derecho, no solo un software.' },
     { icon: 'chip', title: 'Tecnología con IA', body: 'Control en tiempo real, no planillas que se desactualizan.' },
     { icon: 'eye', title: 'Verificación en campo', body: 'Auditamos que lo declarado coincida con la operación.' },
-    { icon: 'map-pin', title: 'Foco regional', body: 'Conocimiento del marco minero de Cuyo (San Juan y Mendoza).' },
+    { icon: 'map-pin', title: 'Foco regional', body: 'Conocimiento del marco minero de la región de Cuyo.' },
   ] as Pillar[],
 };
 
@@ -268,7 +270,7 @@ export const contact = {
   info: [
     { icon: 'phone', label: 'Teléfono', value: site.phone },
     { icon: 'mail', label: 'Email', value: site.email },
-    { icon: 'map-pin', label: 'Oficinas', value: 'San Juan · Mendoza, Argentina' },
+    { icon: 'map-pin', label: 'Oficinas', value: 'Mendoza, Argentina · Santiago de Chile, Chile' },
   ] as ContactInfo[],
   form: {
     note: 'Te respondemos dentro de las 48 hs hábiles.',
@@ -283,8 +285,10 @@ export const footer = {
   desc: 'Auditoría y control de contratistas, gestión documental y asesoría legal-estratégica para minería, oil y gas.',
   navTitle: 'Navegación',
   contactTitle: 'Contacto',
-  contactLines: [site.phone, site.email, 'San Juan · Mendoza'],
+  contactLines: [site.phone, site.email],
+  officesTitle: 'Oficinas',
+  officeLines: ['Mendoza, Argentina', 'Santiago de Chile, Chile'],
   copyright:
-    '© 2026 Pragma Controllers — Consultoría para minería, oil y gas · San Juan — Mendoza',
+    '© 2026 Pragma Controllers — Consultoría para minería, oil y gas · Mendoza — Santiago de Chile',
   tagline: 'Diseñado con criterio. Construido con tecnología.',
 };

@@ -21,7 +21,7 @@ const hanken = Hanken_Grotesk({
 export const metadata: Metadata = {
   title: 'Pragma Controllers — Control de contratistas para minería, oil y gas',
   description:
-    'Auditoría y control de contratistas, gestión documental y asesoría legal-estratégica para empresas de minería, oil y gas. Cuyo: San Juan · Mendoza.',
+    'Auditoría y control de contratistas, gestión documental y asesoría legal-estratégica para empresas de minería, oil y gas. Oficinas en Mendoza (Argentina) y Santiago de Chile.',
 };
 
 export default function RootLayout({

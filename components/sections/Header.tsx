@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Brand } from '@/components/sections/Brand';
 import { Icon } from '@/components/Icon';
 import { navLinks } from '@/lib/data';
 
@@ -11,7 +10,7 @@ export function Header() {
 
   // Sticky header blur: agrega .scrolled cuando scrollY > 16.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => setScrolled(window.scrollY > 80);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -23,7 +22,9 @@ export function Header() {
     <>
       <header className={`header${scrolled ? ' scrolled' : ''}`} id="header">
         <div className="container">
-          <Brand />
+          <a href="#top" className="brand" aria-label="Pragma Controllers — inicio">
+            <img src="/icono.png" alt="Pragma Controllers" className="nav-logo" />
+          </a>
           <nav className="nav">
             <div className="nav-links">
               {navLinks.map((link) => (

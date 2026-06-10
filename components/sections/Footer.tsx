@@ -24,6 +24,12 @@ export function Footer() {
               <p key={line}>{line}</p>
             ))}
           </div>
+          <div className="footer-col">
+            <h4>{footer.officesTitle}</h4>
+            {footer.officeLines.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
         </div>
         <div className="footer-bottom">
           <span>{footer.copyright}</span>
